@@ -1,0 +1,19 @@
+Index: src/main/java/org/telegram/Transliterator/Transliterator.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.telegram.Transliterator;\r\n\r\nimport org.telegram.telegrambots.meta.api.methods.send.SendMessage;\r\nimport org.telegram.telegrambots.meta.api.objects.Update;\r\nimport ru.homyakin.iuliia.Schemas;\r\nimport ru.homyakin.iuliia.Translator;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\n\r\npublic class Transliterator {\r\n    public List<Translator> schemas = new ArrayList<>(28);\r\n    \r\n    \r\n    private Transliterator() {}\r\n    \r\n    public SendMessage translateText(Update update) {\r\n        String translated = translit(update.getMessage().getText());\r\n        if (translated.equals(\"\"))\r\n            translated = \"Ошибка: в результате перевода сообщения получилась пустая строка.\";\r\n        \r\n        SendMessage sm = SendMessage.builder()\r\n                                 .text(translated).chatId(update.getMessage().getChatId())\r\n                                 .build();\r\n        \r\n        return sm;\r\n    }\r\n    \r\n    private String translit(String str) {\r\n        return schemas.get(26).translate(str);\r\n    }\r\n    \r\n    public static Transliterator createTransliterator() {\r\n        Transliterator tr = new Transliterator();\r\n        for (Schemas schem : Schemas.values())\r\n            tr.schemas.add(new Translator(schem));\r\n        \r\n        return tr;\r\n    }\r\n    \r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/telegram/Transliterator/Transliterator.java b/src/main/java/org/telegram/Transliterator/Transliterator.java
+--- a/src/main/java/org/telegram/Transliterator/Transliterator.java	(revision 96716ce2e6fb7694ad95025b0610ea3f0357f6e6)
++++ b/src/main/java/org/telegram/Transliterator/Transliterator.java	(date 1681924752817)
+@@ -10,7 +10,7 @@
+ 
+ 
+ public class Transliterator {
+-    public List<Translator> schemas = new ArrayList<>(28);
++    private List<Translator> schemas = new ArrayList<>(28);
+     
+     
+     private Transliterator() {}
