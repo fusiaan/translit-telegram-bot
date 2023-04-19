@@ -19,11 +19,9 @@ public class Transliterator {
         String translated = translit(update.getMessage().getText());
         if (translated.equals(""))
             translated = "Ошибка: в результате перевода сообщения получилась пустая строка.";
-    
-        Long chatId = update.getMessage().getChatId();
         
         SendMessage sm = SendMessage.builder()
-                                 .text(translated).chatId(chatId)
+                                 .text(translated).chatId(update.getMessage().getChatId())
                                  .build();
         
         return sm;

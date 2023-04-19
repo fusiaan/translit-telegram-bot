@@ -14,10 +14,7 @@ public class StartCommand {
                                           .chatId(update.getMessage().getChatId())
                                           .build();
         
-        
         return sendMessage;
-        
-        
     }
     
 }

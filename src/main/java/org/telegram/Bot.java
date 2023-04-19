@@ -25,9 +25,10 @@ public class Bot extends TelegramLongPollingBot {
                     execute(startCommand.sendStartMsg(update));
                 else if (msg.getText().equals("/scheme"))
                     return;
+                
                 return;
             }
-    
+            
             if (msg.hasText()) {
                 execute(transliterator.translateText(update));
             }

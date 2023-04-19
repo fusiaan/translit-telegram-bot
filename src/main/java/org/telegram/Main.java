@@ -1,10 +1,9 @@
 package org.telegram;
 
-import org.telegram.Transliterator.Transliterator;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
-import ru.homyakin.iuliia.Schemas;
+
 
 public class Main {
     public static void main(String[] args) {
