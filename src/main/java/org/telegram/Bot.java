@@ -1,5 +1,6 @@
 package org.telegram;
 
+import org.telegram.Transliterator.Transliterator;
 import org.telegram.command.StartCommand;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -7,30 +8,37 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 public class Bot extends TelegramLongPollingBot {
     StartCommand startCommand;
+    Transliterator transliterator;
     
     Bot() {
         startCommand = new StartCommand();
+        transliterator = Transliterator.createTransliterator();
     }
     
     @Override
     public void onUpdateReceived(Update update) {
         var msg = update.getMessage();
-        
-        if (msg.isCommand()) {
-            try {
-                if (msg.getText().equals("/start")) {
+        try {
+    
+    
+            if (msg.isCommand()) {
+                if (msg.getText().equals("/start"))
                     execute(startCommand.sendStartMsg(update));
-                }
-            } catch (TelegramApiException exc) {
-                exc.printStackTrace();
+                else if (msg.getText().equals("/scheme"))
+                    return;
+                
+                return;
             }
+    
+            if (msg.hasText()) {
+                execute(transliterator.translateText(update));
+            }
+    
+    
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
         }
-        
-        return;
     }
-    
-    
-    
     
     @Override
     public String getBotUsername() {
