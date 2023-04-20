@@ -1,4 +1,4 @@
-package org.telegram.Transliterator;
+package org.telegram.transliterator;
 
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -10,15 +10,26 @@ import java.util.List;
 
 
 public class Transliterator {
-    public List<Translator> schemas = new ArrayList<>(28);
+    private List<Translator> schemas = new ArrayList<>(27);
+    private static int indexScheme;
     
     
-    private Transliterator() {}
+    static {
+        indexScheme = 24;
+    }
+    private Transliterator() {
+        indexScheme = 24;
+    }
+    
+    public static void changeScheme(int index) {
+        if (index < 0 || index > 26) return;
+        indexScheme = index;
+    }
     
     public SendMessage translateText(Update update) {
         String translated = translit(update.getMessage().getText());
         if (translated.equals(""))
-            translated = "Ошибка: в результате перевода сообщения получилась пустая строка.";
+            translated = "400 Bad Request";
         
         SendMessage sm = SendMessage.builder()
                                  .text(translated).chatId(update.getMessage().getChatId())
@@ -28,7 +39,7 @@ public class Transliterator {
     }
     
     private String translit(String str) {
-        return schemas.get(26).translate(str);
+        return schemas.get(indexScheme).translate(str);
     }
     
     public static Transliterator createTransliterator() {
