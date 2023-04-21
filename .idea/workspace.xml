@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc94561e-f70b-4c75-813f-ace4a277677a" name="Changes" comment="cosmetic changes">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/telegram/command/Command.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/telegram/command/SchemeKeyboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="fc94561e-f70b-4c75-813f-ace4a277677a" name="Changes" comment="add /scheme command">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/telegram/core/ConfigReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/app.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/telegram/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/telegram/Bot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/telegram/Transliterator/Transliterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/telegram/transliterator/Transliterator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/telegram/command/StartCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/telegram/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/telegram/core/Bot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/telegram/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/telegram/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/telegram/command/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/telegram/command/Command.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTTP Request" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -82,13 +81,13 @@
       <recent name="C:\Users\Admin\IdeaProjects\TelegramBot\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="HTTP Request.All in vvf">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.telegram.Main" />
       <module name="TelegramBot" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.telegram.*" />
+          <option name="PATTERN" value="org.telegram.core.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -101,8 +100,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.All in vvf" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="HTTP Request.All in vvf" />
       </list>
     </recent_temporary>
   </component>
@@ -120,7 +119,8 @@
       <workItem from="1681918636368" duration="2308000" />
       <workItem from="1681965225346" duration="5135000" />
       <workItem from="1681983440049" duration="20236000" />
-      <workItem from="1682012318318" duration="1036000" />
+      <workItem from="1682012318318" duration="1228000" />
+      <workItem from="1682050862600" duration="6403000" />
     </task>
     <task id="LOCAL-00001" summary="init and add start command">
       <created>1681907869183</created>
@@ -150,7 +150,21 @@
       <option name="project" value="LOCAL" />
       <updated>1681924976205</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add /scheme command">
+      <created>1682013391368</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1682013391368</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add /scheme command">
+      <created>1682013459745</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1682013459745</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,7 +185,8 @@
     <MESSAGE value="init and add start command" />
     <MESSAGE value="add translation method" />
     <MESSAGE value="cosmetic changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="cosmetic changes" />
+    <MESSAGE value="add /scheme command" />
+    <option name="LAST_COMMIT_MESSAGE" value="add /scheme command" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

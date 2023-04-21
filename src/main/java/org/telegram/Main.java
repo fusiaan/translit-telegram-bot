@@ -1,5 +1,7 @@
 package org.telegram;
 
+import org.telegram.core.Bot;
+import org.telegram.core.ConfigReader;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;

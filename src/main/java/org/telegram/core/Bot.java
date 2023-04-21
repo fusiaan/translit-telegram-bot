@@ -1,4 +1,4 @@
-package org.telegram;
+package org.telegram.core;
 
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.transliterator.Transliterator;
@@ -7,15 +7,18 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+import java.util.Properties;
+
 public class Bot extends TelegramLongPollingBot {
-    Command command;
-    Transliterator transliterator;
+    private static final ConfigReader CONFIG = ConfigReader.getInstance();
+    private static final String BOT_TOKEN_CONFIG = CONFIG.get("BOT_TOKEN");
+    private static final String BOT_USERNAME_CONFIG = CONFIG.get("BOT_USERNAME");
+    
+    private Command command = new Command();
+    private Transliterator transliterator = Transliterator.createTransliterator();
     
     
-    Bot() {
-        command = new Command();
-        transliterator = Transliterator.createTransliterator();
-    }
+    public Bot() {}
     
     @Override
     public void onUpdateReceived(Update update) {
@@ -73,11 +76,11 @@ public class Bot extends TelegramLongPollingBot {
     
     @Override
     public String getBotUsername() {
-        return "TranslitBot";
+        return BOT_USERNAME_CONFIG;
     }
     
     @Override
     public String getBotToken() {
-        return "5995859635:AAGU74jrTa7xCAWbqdJrW9MOBJmpppMMd1U";
+        return BOT_TOKEN_CONFIG;
     }
 }

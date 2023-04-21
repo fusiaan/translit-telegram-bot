@@ -7,18 +7,16 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.transliterator.Transliterator;
 
 public class Command {
-    //    /scheme variables
+//    /scheme variables
     private SchemeKeyboard schemeKeyboard = new SchemeKeyboard();
     
-    private String schemeChangeTxt = "<b>Выберите одну из предложенных схем:\n</b>";
+    private final String schemeChangeTxt = "<b>Выберите одну из предложенных схем:\n</b>";
     
     
-    //    /start variables
-    private String startTxt = "<i>Отправьте текст, который нужно перевести.</i>\n" +
+//    /start variables
+    private final String startTxt = "<i>Отправьте текст, который нужно перевести.</i>\n" +
                                           "\nЧтобы изменить схему, нажмите /scheme";
-    private String changeSettings = "<b><i>Настройки были изменины</i></b>";
-    
-    
+    private final String changeSettings = "<b><i>Настройки были изменины</i></b>";
     
     //    //scheme methods
     public SendMessage schemeMessage(Update update) {
