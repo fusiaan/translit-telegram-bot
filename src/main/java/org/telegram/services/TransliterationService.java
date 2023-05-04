@@ -1,4 +1,4 @@
-package org.telegram.transliterator;
+package org.telegram.services;
 
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -9,32 +9,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Transliterator {
-    private List<Translator> schemas = new ArrayList<>(27);
+public class TransliterationService {
+    private final List<Translator> schemas = new ArrayList<>(22);
     private static int indexScheme;
+    
+    private final String emptyMessage = "Я не могу перевести пустое сообщение:(";
     
     
     static {
-        indexScheme = 24;
+        indexScheme = 1;
     }
-    private Transliterator() {
-        indexScheme = 24;
+    private TransliterationService() {
+        indexScheme = 1;
     }
     
     public static void changeScheme(int index) {
-        if (index < 0 || index > 26) return;
+        if (index < 0 || index > 21) return;
         indexScheme = index;
     }
     
     public SendMessage translateText(Update update) {
         String translated = translit(update.getMessage().getText());
         if (translated.equals(""))
-            translated = "400 Bad Request";
-        
-        SendMessage sm = SendMessage.builder()
-                                 .text(translated).chatId(update.getMessage().getChatId())
+            translated = emptyMessage;
+    
+        SendMessage sm = SendMessage.builder().text(translated)
+                                 .chatId(update.getMessage().getChatId())
                                  .build();
-        
         return sm;
     }
     
@@ -42,8 +43,8 @@ public class Transliterator {
         return schemas.get(indexScheme).translate(str);
     }
     
-    public static Transliterator createTransliterator() {
-        Transliterator tr = new Transliterator();
+    public static TransliterationService createTransliterator() {
+        TransliterationService tr = new TransliterationService();
         for (Schemas schem : Schemas.values())
             tr.schemas.add(new Translator(schem));
         

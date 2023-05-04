@@ -4,23 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc94561e-f70b-4c75-813f-ace4a277677a" name="Changes" comment="add /scheme command">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/telegram/core/ConfigReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/app.properties" afterDir="false" />
+    <list default="true" id="fc94561e-f70b-4c75-813f-ace4a277677a" name="Changes" comment="refactor code">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/telegram/handler/CallbackQueryHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/telegram/handler/CommandHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/telegram/handler/Handler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/telegram/handler/MessageHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/telegram/handler/UpdateHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/telegram/services/TelegramService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/telegram/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/telegram/core/Bot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/telegram/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/telegram/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/telegram/command/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/telegram/command/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/telegram/command/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/telegram/commands/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/telegram/command/SchemeKeyboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/telegram/commands/SchemeKeyboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/telegram/core/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/telegram/core/Bot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/telegram/transliterator/Transliterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/telegram/services/TransliterationService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseLocalColorSettings">
+    <colors>
+      <entry key="57998f0c-cad8-4025-a876-10c453224dce" value="Blue" />
+    </colors>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTTP Request" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -41,6 +53,9 @@
         <option name="url" value="https://github.com/fusiaan/Translite-Telegram-Bot.git" />
       </UrlAndAccount>
     </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/org/telegram/telegrambots-meta/6.5.0/telegrambots-meta-6.5.0-sources.jar!/org/telegram/telegrambots/meta/generics/LongPollingBot.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -72,8 +87,13 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
+    ]
   }
 }</component>
   <component name="RecentsManager">
@@ -120,7 +140,19 @@
       <workItem from="1681965225346" duration="5135000" />
       <workItem from="1681983440049" duration="20236000" />
       <workItem from="1682012318318" duration="1228000" />
-      <workItem from="1682050862600" duration="6403000" />
+      <workItem from="1682050862600" duration="7761000" />
+      <workItem from="1682067896470" duration="3000" />
+      <workItem from="1682099423944" duration="602000" />
+      <workItem from="1682101287514" duration="52000" />
+      <workItem from="1682138563644" duration="653000" />
+      <workItem from="1682139871192" duration="3000" />
+      <workItem from="1682399057841" duration="142000" />
+      <workItem from="1682399212031" duration="38000" />
+      <workItem from="1682399263615" duration="237000" />
+      <workItem from="1682399518630" duration="60000" />
+      <workItem from="1683113492415" duration="3758000" />
+      <workItem from="1683171432298" duration="3505000" />
+      <workItem from="1683175835241" duration="8213000" />
     </task>
     <task id="LOCAL-00001" summary="init and add start command">
       <created>1681907869183</created>
@@ -164,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682013459745</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add .properties file and ConfigReader for it">
+      <created>1682063978407</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1682063978407</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,7 +225,9 @@
     <MESSAGE value="add translation method" />
     <MESSAGE value="cosmetic changes" />
     <MESSAGE value="add /scheme command" />
-    <option name="LAST_COMMIT_MESSAGE" value="add /scheme command" />
+    <MESSAGE value="add .properties file and ConfigReader for it" />
+    <MESSAGE value="refactor code" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
