@@ -5,18 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc94561e-f70b-4c75-813f-ace4a277677a" name="Changes" comment="refactor code">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/telegram/handler/CallbackQueryHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/telegram/handler/CommandHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/telegram/handler/Handler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/telegram/handler/MessageHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/telegram/handler/UpdateHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/telegram/services/TelegramService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/telegram/database/UserSettings.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/telegram/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/telegram/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/telegram/command/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/telegram/commands/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/telegram/command/SchemeKeyboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/telegram/commands/SchemeKeyboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/telegram/core/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/telegram/core/Bot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/telegram/transliterator/Transliterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/telegram/services/TransliterationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +143,13 @@
       <workItem from="1682399518630" duration="60000" />
       <workItem from="1683113492415" duration="3758000" />
       <workItem from="1683171432298" duration="3505000" />
-      <workItem from="1683175835241" duration="8213000" />
+      <workItem from="1683175835241" duration="9600000" />
+      <workItem from="1683263555853" duration="633000" />
+      <workItem from="1683697187547" duration="3178000" />
+      <workItem from="1685017322347" duration="685000" />
+      <workItem from="1685079303062" duration="12000" />
+      <workItem from="1685200282329" duration="127000" />
+      <workItem from="1685258066072" duration="81000" />
     </task>
     <task id="LOCAL-00001" summary="init and add start command">
       <created>1681907869183</created>
@@ -203,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682063978407</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="refactor code">
+      <created>1683185279843</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1683185279843</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,6 +240,15 @@
           <properties class="org.telegram.telegrambots.meta.exceptions.TelegramApiValidationException" package="org.telegram.telegrambots.meta.exceptions" />
           <option name="timeStamp" value="5" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/org/telegram/core/Bot.java</url>
+          <line>14</line>
+          <properties class="org.telegram.core.Bot" method="onUpdateReceived">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
